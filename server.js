@@ -23,6 +23,7 @@ app.get('/preview', async (req, res) => {
     const response = await axios.get('https://api.linkpreview.net/', {
       params: { key: LINK_PREVIEW_API_KEY, q: url }
     });
+    console.log(response.data)
     res.json(response.data);
   } catch (error) {
     console.error('Link preview error:', error.message);
