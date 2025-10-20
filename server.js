@@ -80,7 +80,6 @@ app.get('/preview', async (req, res) => {
   }
 });
 
-// Fallback: normal CORS proxy
 cors_proxy.createServer({
   removeHeaders: ['cookie', 'cookie2'],
 }).listen(PORT,() => {
