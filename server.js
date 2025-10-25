@@ -2,7 +2,7 @@ import express from 'express';
 import axios from 'axios';
 import cors from 'cors';
 import dotenv from 'dotenv';
-
+import * as cheerio from 'cheerio'
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,6 +40,8 @@ app.get('api/preview', async (req, res) => {
 });
 app.get("/preview", async (req, res) => {
   const { url } = req.query;
+  console.log(req.query)
+  console.log(url)
   if (!url) return res.status(400).json({ error: "Missing URL parameter" });
 
   // Check cache
